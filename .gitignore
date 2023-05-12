@@ -1,3 +1,9 @@
 bin/
 
 obj/
+
+out/
+
+public/
+
+package-loc.json
