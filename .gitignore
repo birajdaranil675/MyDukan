@@ -6,4 +6,8 @@ out/
 
 public/
 
-package-loc.json
+node_modules/
+
+.vs/
+
+package-lock.json
