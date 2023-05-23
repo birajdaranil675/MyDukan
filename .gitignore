@@ -6,4 +6,7 @@ out/
 
 public/
 
+/.vs
+/Migration
+
 package-loc.json

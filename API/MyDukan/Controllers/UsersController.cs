@@ -21,39 +21,10 @@ namespace MyDukan.Controllers
             _context = context;
         }
 
-        // GET: api/Users
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Users>>> GetUsers()
-        {
-          if (_context.Users == null)
-          {
-              return NotFound();
-          }
-            return await _context.Users.ToListAsync();
-        }
-
-        // GET: api/Users/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Users>> GetUsers(int id)
-        {
-          if (_context.Users == null)
-          {
-              return NotFound();
-          }
-            var users = await _context.Users.FindAsync(id);
-
-            if (users == null)
-            {
-                return NotFound();
-            }
-
-            return users;
-        }
-
         // PUT: api/Users/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUsers(int id, Users users)
+        public async Task<IActionResult> Registration(int id, Users users)
         {
             if (id != users.ID)
             {
@@ -79,6 +50,39 @@ namespace MyDukan.Controllers
             }
 
             return NoContent();
+        }
+
+        //[HttpGet]
+        //public 
+
+        // GET: api/Users
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Users>>> GetUsers()
+        {
+          if (_context.Users == null)
+          {
+              return NotFound();
+          }
+            return await _context.Users.ToListAsync();
+        }
+
+        // GET: api/Users/5
+        [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<ActionResult<Users>> GetUsers(int id)
+        {
+          if (_context.Users == null)
+          {
+              return NotFound();
+          }
+            var users = await _context.Users.FindAsync(id);
+
+            if (users == null)
+            {
+                return NotFound();
+            }
+
+            return users;
         }
 
         // POST: api/Users
